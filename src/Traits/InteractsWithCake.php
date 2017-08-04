@@ -11,18 +11,11 @@ use Symfony\Component\DomCrawler\Form;
 trait InteractsWithCake
 {
     /**
-     * The DomCrawler instance.
+     * The Symfony DomCrawler instance.
      *
      * @var \Symfony\Component\DomCrawler\Crawler
      */
     protected $crawler;
-
-    /**
-     * Nested crawler instances used by the "within" method.
-     *
-     * @var array
-     */
-    protected $subCrawlers = [];
 
     /**
      * All of the stored inputs for the current page.
@@ -45,6 +38,13 @@ trait InteractsWithCake
      */
     protected $currentUrl;
 
+    /**
+     * Make a GET request to the given uri.
+     *
+     * @param $url
+     *
+     * @return $this
+     */
     public function openPage($url)
     {
         $this->makeRequest($url);
@@ -52,6 +52,14 @@ trait InteractsWithCake
         return $this;
     }
 
+    /**
+     * Prepare the relative URL, given by the user.
+     *
+     * @param $url
+     * @param bool $full
+     *
+     * @return string
+     */
     protected function prepareUrlForRequest($url, $full = true)
     {
         if ($this->startsWith($url, '/')) {
@@ -65,6 +73,15 @@ trait InteractsWithCake
         return trim($url, '/');
     }
 
+    /**
+     * Call a URI in the application.
+     *
+     * @param $url
+     * @param string $method
+     * @param array $data
+     *
+     * @return $this
+     */
     protected function makeRequest($url, $method = 'GET', $data = [])
     {
         $url = $this->prepareUrlForRequest($url);
@@ -108,11 +125,25 @@ trait InteractsWithCake
         return $this;
     }
 
+    /**
+     * Check whether the response is a redirect
+     *
+     * @return bool
+     */
     protected function isRedirect()
     {
         return $this->_response->getStatusCode() == 302;
     }
 
+    /**
+     * Assert that the page contains the given text.
+     *
+     * @param $content
+     * @param bool $ignoreCase
+     * @param string $message
+     *
+     * @return $this
+     */
     public function seeText($content, $ignoreCase = true, $message = '')
     {
         if (!$this->_response) {
@@ -124,6 +155,15 @@ trait InteractsWithCake
         return $this;
     }
 
+    /**
+     * Assert that the page does not contain the given text.
+     *
+     * @param $content
+     * @param bool $ignoreCase
+     * @param string $message
+     *
+     * @return $this
+     */
     public function dontSeeText($content, $ignoreCase = true, $message = '')
     {
         if (!$this->_response) {
@@ -221,14 +261,14 @@ trait InteractsWithCake
      *
      * @return static
      */
-    public function attachFile($element, $absolutePath)
-    {
-        $name = str_replace('#', '', $element);
-
-        $this->uploads[$name] = $absolutePath;
-
-        return $this->storeInput($element, $absolutePath);
-    }
+//    public function attachFile($element, $absolutePath)
+//    {
+//        $name = str_replace('#', '', $element);
+//
+//        $this->uploads[$name] = $absolutePath;
+//
+//        return $this->storeInput($element, $absolutePath);
+//    }
 
     /**
      * Press the form submit button with the given text.
@@ -242,6 +282,13 @@ trait InteractsWithCake
         return $this->submitForm($buttonText, $this->inputs);
     }
 
+    /**
+     * Assert that the page URI matches the given uri.
+     *
+     * @param $url
+     *
+     * @return $this
+     */
     public function canSeePageIs($url)
     {
         $this->assertEquals($url = $this->prepareUrlForRequest($url), $this->currentUrl);
@@ -249,6 +296,13 @@ trait InteractsWithCake
         return $this;
     }
 
+    /**
+     * Assert that the page URI contains the given uri.
+     *
+     * @param $url
+     *
+     * @return $this
+     */
     public function canSeePageUrlContains($url)
     {
         $this->assertContains($url = $this->prepareUrlForRequest($url), $this->currentUrl);
@@ -493,6 +547,13 @@ trait InteractsWithCake
         return false;
     }
 
+    /**
+     * Set the currently logged in user for the application.
+     *
+     * @param \Cake\ORM\Entity $user
+     *
+     * @return $this
+     */
     public function actingAs(Entity $user)
     {
         $this->session([
@@ -504,6 +565,13 @@ trait InteractsWithCake
         return $this;
     }
 
+    /**
+     * Add the data to the session.
+     *
+     * @param array $data
+     *
+     * @return $this
+     */
     public function addToSession(array $data)
     {
         $this->session($data);
@@ -511,6 +579,9 @@ trait InteractsWithCake
         return $this;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function cookie($name, $value)
     {
         parent::cookie($name, $value);
