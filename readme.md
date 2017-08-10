@@ -52,7 +52,7 @@ class DemoTest extends CakeTestCase
              ->fillInField('title', 'My first post')
              ->fillInField('author', 'Viraj Khatavkar')
              ->fillInField('body', 'My Post body')
-             ->check('#published')
+             ->check('published')
              ->press('Submit')
              ->canSeePageIs('/posts')
              ->seeText('My first post');
@@ -63,7 +63,7 @@ class DemoTest extends CakeTestCase
 ## API
 Here is the API of this package which can be used to write your tests:
 
-### `$this->fillInField($elementName, $text)`
+**`$this->fillInField($elementName, $text)`**
 
 Fill the text in the input field identified with name of element
 
@@ -71,7 +71,7 @@ Fill the text in the input field identified with name of element
 $this->fillInField('name', 'Viraj Khatavkar');
 ```
 
-### `$this->check($elementName)`
+**`$this->check($elementName)`**
 
 Check the checkbox identified with name element
 
@@ -79,7 +79,7 @@ Check the checkbox identified with name element
 $this->check('agree_to_terms');
 ```
 
-### `$this->uncheck($elementName)`
+**`$this->uncheck($elementName)`**
 
 Uncheck the checkbox identified with name of element
 
@@ -87,7 +87,7 @@ Uncheck the checkbox identified with name of element
 $this->uncheck('agree_to_terms');
 ```
 
-### `$this->select($elementName, $option)`
+**`$this->select($elementName, $option)`**
 
 Select a radio button or an option from the dropdown field identified with name of element
 
@@ -99,7 +99,7 @@ $this->select('state', 'Pennsylvania');
 $this->select('gender', 'M');
 ```
 
-### `$this->press($buttonText)`
+**`$this->press($buttonText)`**
 
 Press a button with the provided name or text.
 
@@ -112,7 +112,7 @@ $this->press('Submit');
 $this->press('submit');
 ```
 
-### `$this->canSeePageIs($url)`
+**`$this->canSeePageIs($url)`**
 
 Assert that the page URI matches the given url.
 
@@ -120,7 +120,7 @@ Assert that the page URI matches the given url.
 $this->canSeePageIs('/posts');
 ```
 
-### `$this->canSeePageUrlContains($url)`
+**`$this->canSeePageUrlContains($url)`**
 
 Assert that the page URI contains the given url.
 
@@ -128,7 +128,7 @@ Assert that the page URI contains the given url.
 $this->canSeePageUrlContains('/po');
 ```
 
-### `$this->actingAs($user)`
+**`$this->actingAs($user)`**
 
 Set the currently logged in user for the application.
 
