@@ -14,4 +14,6 @@ use TestDummy\BaseTestCase;
 abstract class LegacyTestCase extends BaseTestCase
 {
     use LegacyInteractionWithCake;
+
+    protected $baseUrl = 'http://localhost';
 }

@@ -67,7 +67,7 @@ trait InteractsWithCake
         }
 
         if (!$this->startsWith($url, 'http')) {
-            $url = Router::url($url, $full);
+            $url = $this->baseUrl . '/' . $url;
         }
 
         return trim($url, '/');
