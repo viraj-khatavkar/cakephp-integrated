@@ -1,9 +1,7 @@
 <?php
 namespace Integrated;
 
-use Integrated\Traits\InteractsWithCake;
 use Integrated\Traits\LegacyInteractionWithCake;
-use TestDummy\BaseTestCase;
 
 /**
  * Class LegacyTestCase
@@ -11,7 +9,7 @@ use TestDummy\BaseTestCase;
  * @deprecated 
  * @package Integrated
  */
-abstract class LegacyTestCase extends BaseTestCase
+abstract class LegacyTestCase extends IntegratedTestCase
 {
     use LegacyInteractionWithCake;
 
