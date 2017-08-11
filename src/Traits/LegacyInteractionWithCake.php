@@ -95,12 +95,7 @@ trait LegacyInteractionWithCake
     protected function followRedirects()
     {
         while ($this->isRedirect()) {
-            if($this->_requestSession->check('Auth')) {
-                $this->session([
-                    'Auth' => $this->_requestSession->read('Auth'),
-                ]);
-            }
-
+            $this->session($this->_requestSession->read());
             $this->makeRequest($this->_response->location());
         }
 
