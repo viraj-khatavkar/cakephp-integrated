@@ -1,11 +1,17 @@
 # CakePHP Integrated
 Better integration testing with [CakePHP](https://cakephp.org). An intuitive API for integration testing your CakePHP applications.
 
-## Step 1: Installation
+## Step 1: Installation & Setup
 Install this package using Composer:
 
 ```bash
 composer require viraj/cakephp-integrated --dev
+```
+
+You'll also need to set a baseUrl for your application. By default, it is set to "http://localhost", however, you'll likely need to change this. Do so by either adding a $baseUrl to your test class:
+
+```php
+protected $baseUrl = 'http://your-dev-url';
 ```
 
 ## Step 2: Extend the base class:
