@@ -43,6 +43,8 @@ The API for both the classes is going to be the same. We will use the `CakeTestC
 class DemoTest extends CakeTestCase
 {
     use DatabaseMigrations;
+    
+    protected $baseUrl = "http://local.yourapp.dev
 
     /** @test */
     public function unauthenticated_user_cannot_see_the_add_posts_page()
