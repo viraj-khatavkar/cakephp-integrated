@@ -14,6 +14,9 @@ You'll also need to set a baseUrl for your application. By default, it is set to
 protected $baseUrl = 'http://your-dev-url';
 ```
 
+
+>This package comes installed with the [TestDummy](https://github.com/viraj-khatavkar/cakephp-testdummy#step-2-create-a-factories-file) package. It is recommended to use factories and the `DatabaseMigrations` trait instead of `fixtures` for optimal productivity with this package. You can learn more about that in the official documentation of the [TestDummy](https://github.com/viraj-khatavkar/cakephp-testdummy#step-2-create-a-factories-file) package. 
+
 ## Step 2: Extend the base class:
 
 After CakePHP 3.4.1:
@@ -144,3 +147,7 @@ $user = factory('Users')->create();
 
 $this->actingAs($user)->openPage('/posts/add');
 ```
+
+## Looking for a comprehensive guide on implementing TDD practices in a real world CakePHP application?
+
+I'm writing a book on implementing TDD for real-world CakePHP applications! [Check it out](https://tddforcakephp.com/) if you are having a hard time on writing tests in a real world application.
