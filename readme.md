@@ -8,7 +8,7 @@ Install this package using Composer:
 composer require viraj/cakephp-integrated --dev
 ```
 
-You'll also need to set a baseUrl for your application. By default, it is set to "http://localhost", however, you'll likely need to change this. Do so by either adding a $baseUrl to your test class:
+You'll also need to set a baseUrl for your application. By default, it is set to "http://localhost", however, you'll likely need to change this. Do so by adding a `$baseUrl` to your test class:
 
 ```php
 protected $baseUrl = 'http://your-dev-url';
@@ -150,6 +150,6 @@ $user = factory('Users')->create();
 $this->actingAs($user)->openPage('/posts/add');
 ```
 
-### Looking for a comprehensive guide on implementing TDD practices in a real world CakePHP application?
+### Looking for a comprehensive guide on implementing TDD?
 
 I'm writing a book on implementing TDD for real-world CakePHP applications! [Check it out](https://tddforcakephp.com/) if you are having a hard time on writing tests in a real world application.
