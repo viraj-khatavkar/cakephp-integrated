@@ -148,6 +148,6 @@ $user = factory('Users')->create();
 $this->actingAs($user)->openPage('/posts/add');
 ```
 
-## Looking for a comprehensive guide on implementing TDD practices in a real world CakePHP application?
+### Looking for a comprehensive guide on implementing TDD practices in a real world CakePHP application?
 
 I'm writing a book on implementing TDD for real-world CakePHP applications! [Check it out](https://tddforcakephp.com/) if you are having a hard time on writing tests in a real world application.
