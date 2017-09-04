@@ -91,7 +91,7 @@ abstract class IntegratedTestCase extends BaseTestCase
         $this->currentUrl = $url;
 
         $this->clearInputs()->followRedirects();
-        
+
         $this->assertResponseOk();
 
         $this->crawler = new Crawler($this->_getBodyAsString(), $this->currentUrl);

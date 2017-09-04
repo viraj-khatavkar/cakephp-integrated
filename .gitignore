@@ -1,6 +1,5 @@
 .idea/*
 /vendor/*
-/composer.lock
 # IDE and editor specific files #
 #################################
 /nbproject
