@@ -1,12 +1,21 @@
 # CakePHP Integrated
 Better integration testing with [CakePHP](https://cakephp.org). An intuitive API for integration testing your CakePHP applications.
 
-## Step 1: Installation
+## Step 1: Installation & Setup
 Install this package using Composer:
 
 ```bash
 composer require viraj/cakephp-integrated --dev
 ```
+
+You'll also need to set a baseUrl for your application. By default, it is set to "http://localhost", however, you'll likely need to change this. Do so by adding a `$baseUrl` to your test class:
+
+```php
+protected $baseUrl = 'http://your-dev-url';
+```
+
+
+>This package comes installed with the [TestDummy](https://github.com/viraj-khatavkar/cakephp-testdummy#step-2-create-a-factories-file) package. It is recommended to use factories and the `DatabaseMigrations` trait instead of `fixtures` for optimal productivity with this package. You can learn more about that in the official documentation of the [TestDummy](https://github.com/viraj-khatavkar/cakephp-testdummy#step-2-create-a-factories-file) package. 
 
 ## Step 2: Extend the base class:
 
@@ -34,6 +43,8 @@ The API for both the classes is going to be the same. We will use the `CakeTestC
 class DemoTest extends CakeTestCase
 {
     use DatabaseMigrations;
+    
+    protected $baseUrl = "http://local.yourapp.dev";
 
     /** @test */
     public function unauthenticated_user_cannot_see_the_add_posts_page()
@@ -138,3 +149,7 @@ $user = factory('Users')->create();
 
 $this->actingAs($user)->openPage('/posts/add');
 ```
+
+### Looking for a comprehensive guide on implementing TDD?
+
+I'm writing a book on implementing TDD for real-world CakePHP applications! [Check it out](https://tddforcakephp.com/) if you are having a hard time on writing tests in a real world application.
