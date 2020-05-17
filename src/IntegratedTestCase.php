@@ -266,7 +266,7 @@ abstract class IntegratedTestCase extends BaseTestCase
 
     public function canSeePageUrlContains($url)
     {
-        $this->assertContains($url = $this->prepareUrlForRequest($url), $this->currentUrl);
+        $this->assertContains($url, $this->currentUrl);
 
         return $this;
     }
