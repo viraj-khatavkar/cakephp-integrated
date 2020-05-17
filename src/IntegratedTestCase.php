@@ -84,8 +84,6 @@ abstract class IntegratedTestCase extends BaseTestCase
      */
     protected function makeRequest($url, $method = 'GET', $data = [])
     {
-        $url = $this->prepareUrlForRequest($url);
-
         $this->_sendRequest($url, $method, $data);
 
         $this->currentUrl = $url;
@@ -94,7 +92,7 @@ abstract class IntegratedTestCase extends BaseTestCase
 
         $this->assertResponseOk();
 
-        $this->crawler = new Crawler($this->_getBodyAsString(), $this->currentUrl);
+        $this->crawler = new Crawler($this->_getBodyAsString(), $this->baseUrl . $this->currentUrl);
 
         return $this;
     }
@@ -158,9 +156,26 @@ abstract class IntegratedTestCase extends BaseTestCase
             }
         }
 
-        $this->openPage($link->link()->getUri());
+        $path = $this->buildUrl($link->link()->getUri());
+
+        $this->openPage($path);
 
         return $this;
+    }
+
+    /**
+     * Build url path with query string if present
+     *
+     * @param string $uri
+     *
+     * @return mixed|string
+     */
+    protected function buildUrl(string $uri)
+    {
+        $path = parse_url($uri, PHP_URL_PATH);
+        $query = parse_url($uri, PHP_URL_QUERY);
+
+        return $query ? $path . '?' . $query : $path;
     }
 
     /**
@@ -244,7 +259,7 @@ abstract class IntegratedTestCase extends BaseTestCase
 
     public function canSeePageIs($url)
     {
-        $this->assertEquals($url = $this->prepareUrlForRequest($url), $this->currentUrl);
+        $this->assertEquals($url, $this->currentUrl);
 
         return $this;
     }
@@ -344,11 +359,9 @@ abstract class IntegratedTestCase extends BaseTestCase
      */
     protected function makeRequestUsingForm(Form $form, array $uploads = [])
     {
-//        $files = $this->convertUploadsForTesting($form, $this->uploads);
+        $path = $this->buildUrl($form->getUri());
 
-        return $this->makeRequest(
-            $form->getUri(), $form->getMethod(), $form->getPhpValues()
-        );
+        return $this->makeRequest($path, $form->getMethod(), $form->getPhpValues());
     }
 
     /**
