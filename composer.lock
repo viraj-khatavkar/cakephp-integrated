@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab7152965fc8545cccbf3ad285d95497",
+    "content-hash": "5b1048f6a9edfb3934071d28096b5ccc",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -468,22 +468,22 @@
         },
         {
             "name": "viraj/cakephp-testdummy",
-            "version": "1.1",
+            "version": "1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/viraj-khatavkar/cakephp-testdummy.git",
-                "reference": "858bd79b2fa29b96d274bcf37d5b82b1c86e2c2f"
+                "reference": "0b39a0d0adc9bf7fde681f4d1f45c74ae5c3e869"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/viraj-khatavkar/cakephp-testdummy/zipball/858bd79b2fa29b96d274bcf37d5b82b1c86e2c2f",
-                "reference": "858bd79b2fa29b96d274bcf37d5b82b1c86e2c2f",
+                "url": "https://api.github.com/repos/viraj-khatavkar/cakephp-testdummy/zipball/0b39a0d0adc9bf7fde681f4d1f45c74ae5c3e869",
+                "reference": "0b39a0d0adc9bf7fde681f4d1f45c74ae5c3e869",
                 "shasum": ""
             },
             "require": {
                 "cakephp/chronos": "^1.0.0",
                 "fzaninotto/faker": "~1.4",
-                "php": ">=5.6.0",
+                "php": ">=7.2.0",
                 "symfony/finder": "^3.3"
             },
             "conflict": {
@@ -520,7 +520,7 @@
                 "testdummy",
                 "testing"
             ],
-            "time": "2020-10-21T08:32:53+00:00"
+            "time": "2020-10-21T09:16:37+00:00"
         }
     ],
     "packages-dev": [
@@ -2022,7 +2022,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0"
+        "php": ">=7.2.0"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"
