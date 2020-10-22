@@ -117,7 +117,7 @@ abstract class IntegratedTestCase extends BaseTestCase
             $this->fail('No response, cannot see content. ' . $message);
         }
 
-        $this->assertContains($content, $this->_getBodyAsString(), $message, $ignoreCase);
+        $this->assertStringContainsStringIgnoringCase($content, $this->_getBodyAsString(), $message);
 
         return $this;
     }
@@ -128,7 +128,7 @@ abstract class IntegratedTestCase extends BaseTestCase
             $this->fail('No response, cannot see content. ' . $message);
         }
 
-        $this->assertNotContains($content, $this->_getBodyAsString(), $message, $ignoreCase);
+        $this->assertStringNotContainsStringIgnoringCase($content, $this->_getBodyAsString(), $message);
 
         return $this;
     }
@@ -266,7 +266,7 @@ abstract class IntegratedTestCase extends BaseTestCase
 
     public function canSeePageUrlContains($url)
     {
-        $this->assertContains($url, $this->currentUrl);
+        $this->assertStringContainsString($url, $this->currentUrl);
 
         return $this;
     }
