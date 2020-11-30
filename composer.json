@@ -11,7 +11,7 @@
 	"require": {
 		"php": ">=7.2.0",
 		"symfony/dom-crawler": "^3.3",
-		"symfony/css-selector": "^3.3",
+		"symfony/css-selector": "^4.0",
 		"viraj/cakephp-testdummy": "^2.0"
 	},
 	"require-dev": {
