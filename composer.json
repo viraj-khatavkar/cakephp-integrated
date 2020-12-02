@@ -10,7 +10,7 @@
 	],
 	"require": {
 		"php": ">=7.2.0",
-		"symfony/dom-crawler": "^4.4",
+		"symfony/dom-crawler": ">4.4",
 		"viraj/cakephp-testdummy": "^2.0",
 		"symfony/css-selector": ">4.4"
 	},
