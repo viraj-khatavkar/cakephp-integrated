@@ -12,7 +12,7 @@
 		"php": ">=7.2.0",
 		"symfony/dom-crawler": "^4.4",
 		"viraj/cakephp-testdummy": "^2.0",
-		"symfony/css-selector": "^4.4"
+		"symfony/css-selector": ">4.4"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^5.7|^6.0|^7.0|^8.5"
