@@ -523,11 +523,9 @@ abstract class IntegratedTestCase extends BaseTestCase
         return $this;
     }
 
-    public function cookie($name, $value)
+    public function cookie($name, $value) : void
     {
-        parent::cookie($name, $value);
-
-        return $this;
+        $this->cookie($name, $value);
     }
 
 }
