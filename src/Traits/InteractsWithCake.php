@@ -12,7 +12,7 @@ trait InteractsWithCake
     protected function followRedirects()
     {
         while ($this->isRedirect()) {
-            $this->session($this->_requestSession->read());
+            $this->session($this->getSession()->read());
             $this->makeRequest($this->_response->getHeaderLine('Location'));
         }
 
